@@ -1,0 +1,59 @@
+.line {
+  height: 1px;
+  background-color: #D7D7D7 !important;
+  width: calc(100vw - 50px) !important;
+}
+
+.bottomMAppsFull {
+  position: absolute !important;
+}
+
+.textContact {
+
+}
+
+.rightBottom {
+}
+
+.textCenter {
+
+}
+
+.leftBottom {
+
+}
+@media (max-width: 1200px) {
+  .rightBottom {
+    align-items: center !important;
+  }
+
+  .leftBottom {
+    align-items: center !important;
+  }
+  .textCenter {
+    text-align: center !important;
+
+  }
+  .textContact {
+    text-align: center !important;
+    margin-top: 15px !important;
+  }
+  .bottomMApps {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .appStore {
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+  }
+
+  .bottomEuroparc {
+    justify-content: center !important;
+    margin-top: 15px !important;
+  }
+
+  .bottomLogo {
+    margin-left: 0 !important;
+  }
+}

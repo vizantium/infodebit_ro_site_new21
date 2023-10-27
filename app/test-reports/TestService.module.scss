@@ -1,0 +1,10 @@
+.titleTestService {
+
+}
+
+@media (max-width: 600px) {
+  .titleTestService {
+    padding-right: 15px !important;
+    margin-left: -30px !important;
+  }
+}

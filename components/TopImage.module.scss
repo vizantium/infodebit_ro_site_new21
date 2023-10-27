@@ -1,0 +1,24 @@
+.topImage {
+  margin-top: 50px !important;
+  background-image: url('./../public/topImage.jpg') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  height: 16.8em !important;
+  width: 100% !important;
+}
+
+
+@media (max-width: 900px) {
+  .topImage {
+    background-image: url('./../public/topImageTablet.jpg') !important;
+    height: 10em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .topImage {
+    background-image: url('./../public/topImageMobile.jpg') !important;
+    height: 8em !important;
+  }
+}

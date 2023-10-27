@@ -1,0 +1,133 @@
+.sendButton {
+  border: none !important;
+  background-color: #0795fe !important;
+  color: white !important;
+  padding: 7px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  font-weight: bold !important;
+  text-transform: none !important;
+}
+.sendButtonFalse {
+  border: none !important;
+  background-color: #d9e2ec !important;
+  color: white !important;
+  padding: 7px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+  font-weight: bold !important;
+  text-transform: none !important;
+}
+.dropdownContent {
+  display: none !important;
+  margin: 10px !important;
+  margin-left: 0 !important;
+  position: fixed !important;
+  background-color: #fcfafa !important;
+  top: 53px !important;
+  min-width: 200px !important;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+}
+
+.dropdown {
+  display: flex!important;
+  height: 64px !important;
+}
+
+.dropdown:hover {
+  background-color: #e5e4e4 !important;
+}
+
+.dropdownContent .dropDownLink {
+  border-bottom: 1px solid #b6b4b4;
+}
+.dropDownLink:last-child {
+  border-bottom: none;
+}
+.dropdown:hover .dropdownContent {
+  //min-width: 10;
+  //width: inherit !important;
+  display: block !important;
+  flex-direction: column !important;
+
+  div {
+    color: #000000 !important;
+
+  }
+  div:hover {
+    background-color: #d5d4d4 !important;
+  }
+
+}
+
+.titleContacts {
+}
+
+
+@media (max-width: 980px) {
+  .gridInputs {
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+.textContacts2 {
+
+}
+
+.textContacts3 {
+
+}
+.gridInputs {
+
+}
+@media (max-width: 900px) {
+  .titleContacts {
+    margin-top: -30px !important;
+    margin-bottom: 0 !important;
+  }
+  .textContacts {
+    margin-top: 20px !important;
+    margin-bottom: -5px !important;
+  }
+  .textContacts2 {
+    margin-top: -5px !important;
+    margin-bottom: -25px !important;
+  }
+  .textContacts3 {
+    margin-top: -15px !important;
+    margin-bottom: -5px !important;
+  }
+}
+@media (max-width: 600px) {
+  .titleTestService {
+    padding-right: 15px !important;
+    margin-left: -30px !important;
+  }
+}
+
+
+.inputStyle {
+  width: 35.8vw !important;
+}
+
+.inputMessage {
+  width: 35.3vw !important;
+}
+
+@media (max-width: 600px) {
+  .inputStyle{
+    width: 85vw !important;
+  }
+  .inputMessage {
+    width: 85vw !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .inputStyle{
+    width: 92vw !important;
+  }
+  .inputMessage {
+    width: 91vw !important;
+  }
+}

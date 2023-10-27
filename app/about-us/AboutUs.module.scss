@@ -1,0 +1,13 @@
+.boldText {
+  font-weight: bold !important;
+}
+
+.about {
+
+}
+
+@media (max-width: 600px) {
+  .about{
+    margin-top: -10px !important;
+  }
+}
