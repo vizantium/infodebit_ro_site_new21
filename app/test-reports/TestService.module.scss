@@ -2,9 +2,345 @@
 
 }
 
+.boldText {
+  font-weight: bold
+}
+
+.border {
+  border: 1px solid grey !important;
+  width: 63.2em !important;
+  height: 6500px !important;
+  margin-left: 400px !important;
+
+//  [theme.breakpoints.only('lg')]: {
+//  marginLeft: "120px !important"
+//}
+}
+
+.creditReport {
+  //  [theme.breakpoints.only('lg')]: {
+  //  marginLeft: "120px !important"
+  //}
+}
+
+.divider {
+  width: 58.3em !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid black !important;
+}
+
+.boldDivider {
+  width: 58.3em !important;
+  border-bottom: 1px solid black !important;
+  border-width: 3px !important;
+}
+
+.blueDivider {
+  width: 49.2em !important;
+  border-bottom: 1px solid #0795fe !important;
+  border-width: 2px !important;
+  margin-left: 8.5em !important;
+}
+
+.greydivider {
+  width: 58.3em !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid grey !important;
+}
+
+.halfDevider {
+  width: 27em !important;
+  font-weight: bold !important;
+  border-bottom: 3px solid black !important;
+}
+
+.halfgreyDevider {
+  width: 27.5em !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid grey !important;
+}
+
+.halfBlackDivider {
+  width: 24.1em !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid black !important;
+}
+
+.halfBlackDividerRight {
+  width: 25.2em !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid black !important;
+}
+
+.halfgreyDeviderRight {
+  width: 29em !important;
+  font-weight: bold !important;
+  border-bottom: 1px solid grey !important;
+}
+
+.blueColor {
+  color: #0795fe !important;
+}
+
+.tableDesign {
+  border: 1px solid black !important;
+}
+
+.tableRight {
+  border-top: 1px solid black !important;
+  border-right: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+}
+
+.cardBorder {
+  border: 1px solid black !important;
+  margin-right: 72px !important;
+  max-width: 58.3em !important;
+}
+
+.footer {
+  height: 80px !important;
+  background-color: #D9D9D9 !important;
+  position: relative !important;
+}
+
+.Mobile {
+
+}
+
+.logoMobile {
+
+}
+
+.mobileBlock {
+
+}
+
+.mobileType {
+
+}
+
+.size {
+
+}
+
+.size3 {
+
+}
+
+.sizesmall {
+
+}
+
+.arrangeDubleTable {
+
+}
+
+.primaryIndicatorTable {
+
+}
+.blueTable {
+  width: 49.2em !important;
+}
+
+.dubleTable {
+  margin-left: 50px !important;
+
+}
 @media (max-width: 600px) {
   .titleTestService {
     padding-right: 15px !important;
     margin-left: -30px !important;
   }
+  .border {
+    width: 21em !important;
+    margin-left: 20px !important;
+    height: 10000px !important;
+  }
+  .divider {
+    width: 20em !important;
+  }
+  .boldDivider {
+    width: 20em !important;
+  }
+  .blueDivider {
+    width: 20em !important;
+    margin-left: 0 !important;
+  }
+  .greydivider {
+    width: 20em !important;
+  }
+  .halfDevider {
+    width: 20em !important;
+  }
+  .halfgreyDevider {
+    width: 20em!important;
+  }
+  .halfBlackDivider {
+    width: 16.5em !important;
+  }
+  .halfBlackDividerRight {
+    width: 16.5em !important;
+  }
+  .halfgreyDeviderRight {
+    width: 20em !important;
+  }
+  .blueColor {
+    margin-right: 10px !important;
+    margin-top: 3em !important;
+  }
+  .tableDesign {
+    margin-right: 18px !important;
+    max-width: 16.5em !important;
+  }
+  .tableRight {
+    margin-left: 35.5px !important;
+    max-width: 16.5em !important;
+  }
+  .cardBorder {
+    max-width: 20em !important;
+  }
+  .footer {
+    height: 58px !important;
+  }
+  .Mobile {
+    font-size: 1rem !important;
+  }
+  .logoMobile {
+    width: 4em !important;
+  }
+  .mobileBlock {
+    font-size: 0.8rem !important;
+  }
+  .mobileType {
+    font-size: 0.75rem !important;
+  }
+  .size {
+    font-size: 0.8rem !important;
+  }
+  .size3 {
+    font-size: 0.63rem !important;
+  }
+  .sizesmall {
+    font-size: 0.7rem !important;
+  }
+  .arrangeDubleTable {
+    max-width: 20em !important;
+  }
+  .blueTable {
+    max-width: 20em !important;
+  }
+  .dubleTable {
+    margin-left: 0 !important;
+  }
 }
+@media (min-width: 600px) and (max-width: 900px) {
+  .border {
+    width: 40em !important;
+    height: 9700px !important;
+    margin-left: 60px !important;
+  }
+  .divider {
+    width: 35em !important;
+  }
+  .boldDivider {
+    width: 35em !important;
+  }
+  .blueDivider {
+    margin-left: 0 !important;
+    width: 35em !important;
+  }
+  .greydivider {
+    width: 35em !important;
+  }
+  .halfgreyDevider {
+    width: 35em !important;
+  }
+  .halfBlackDivider {
+    width: 28em !important;
+  }
+  .halfBlackDividerRight {
+    width: 28em !important;
+  }
+  .halfgreyDeviderRight {
+    width: 35em !important;
+  }
+  .blueColor {
+    margin-right: 30px !important;
+  }
+  .tableDesign {
+    max-width: 28em !important;
+  }
+  .tableRight {
+    border-left: 1px solid black !important;
+    max-width: 28em !important;
+    margin-left: 5.7em !important;
+  }
+  .cardBorder {
+    max-width: 34.5em !important;
+  }
+  .primaryIndicatorTable {
+    max-width: 35em !important;
+  }
+  .blueTable {
+    max-width: 35em !important;
+  }
+  .dubleTable {
+    margin-left: 10px !important;
+  }
+}
+@media (min-width: 900px) and (max-width: 1200px) {
+  .border {
+    margin-left: 45px !important;
+    width: 50em !important;
+    height: 9000px !important;
+  }
+  .creditReport {
+    margin-left: 45px !important;
+  }
+  .divider {
+    width: 45em !important;
+  }
+  .boldDivider {
+    width: 45em !important;
+  }
+  .blueDivider {
+    width: 45em !important;
+    margin-left: 0 !important;
+  }
+  .greydivider {
+    width: 45em !important;
+  }
+  .halfgreyDevider {
+    width: 45em !important;
+  }
+  .halfBlackDividerRight {
+    width: 24.2em !important;
+  }
+  .halfgreyDeviderRight {
+    width: 45em !important;
+  }
+  .tableDesign {
+    max-width: 24.2em !important;
+  }
+  .tableRight {
+    max-width: 24.2em !important;
+    border-left: 1px solid black !important;
+    margin-left: 8.3em !important;
+  }
+  .cardBorder {
+    max-width: 45em !important;
+  }
+  .primaryIndicatorTable {
+    margin-left: 0 !important;
+    max-width: 45em !important;
+  }
+  .blueTable {
+    max-width: 45em !important;
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 1200px) {
+
+}
+
