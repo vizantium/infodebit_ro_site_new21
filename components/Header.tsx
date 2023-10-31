@@ -209,7 +209,7 @@ export default function Header(){
                     ))
                 }
                 <Grid className={styles.arrangeDrop} item aria-owns={anchorEl ? "simple-menu" : undefined}
-                      sx={{paddingTop: '8px'}}
+                      sx={{paddingTop: '8px', marginLeft: '10px'}}
                       aria-haspopup={anchorEl ? "true" : undefined}
                       onClick={event => handleClick(event)}>
                     <Typography sx={{display: 'flex', alignItems: 'center'}}>{language === 'ro' ? <img alt={'ro'} src='/ro.png' className={styles.space} style={{ marginTop: '2px'}}/> : <img alt={'en'} src='/en.png' className={styles.space} style={{ marginTop: '2px'}}/>}
@@ -217,6 +217,7 @@ export default function Header(){
                 </Grid>
             </Tabs>
             <Menu
+
                 id="simple-menu"
                 anchorEl={anchorEl}
                 open={openMenu}

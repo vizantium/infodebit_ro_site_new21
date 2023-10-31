@@ -65,8 +65,7 @@ export default function Contacts() {
             subject: subject,
             message: message
         }
-        console.log('jkfpds')
-        emailjs.send('service_wgkaczg', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
+        emailjs.send('service_tk6bisj', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
             .then((result) => {
                 console.log(result);
             }, (error) => {
@@ -201,7 +200,7 @@ export default function Contacts() {
                                         <Grid>
                                             <Button type="submit"
                                                     className={verified ? style.sendButton : style.sendButtonFalse}
-                                                    disabled={!verified}>Send</Button>
+                                                    disabled={!verified}>{contactItems.attributes?.send_button}</Button>
                                         </Grid>
                                         <br/> <br/>
                                     </form>
