@@ -44,19 +44,19 @@ export default function Header(){
     }
     const [language, setLanguage] = useState('ro')
     const [headerData, setHeaderData] = useState<any>()
-    const  [ cookies ,  setCookie ,  RemoveCookie ]  =  useCookies ( [ 'cookie-name' ] ) ;
+    const  [ cookies ,  setCookie ,  RemoveCookie ]  =  useCookies<any>( [ 'cookie-name' ] ) ;
     const [checkPref, setCheckedPref] = useState(true);
     const [checkAnalyt, setCheckedAnalyt] = useState(true);
     const [checkMarkt, setCheckedMarkt] = useState(true);
     const [openCustom, setOpenCustom] = useState(false);
     const [isCookie, setIsCookie] = useState(true)
-    const handleChangePref = (event) => {
+    const handleChangePref = (event: any) => {
         setCheckedPref(event.target.checked);
     };
-    const handleChangeAnalyt = (event) => {
+    const handleChangeAnalyt = (event: any) => {
         setCheckedAnalyt(event.target.checked);
     };
-    const handleChangeMarkt = (event) => {
+    const handleChangeMarkt = (event: any) => {
         setCheckedMarkt(event.target.checked);
     };
     const setCookieAccess = () => {
@@ -133,7 +133,7 @@ export default function Header(){
                 <Typography
                     sx={{color: 'rgb(255, 255, 255)', fontWeight: 400, fontSize: '15px', marginTop: '10px'}}
                 >
-                    Folosim cookie-uri pe site-ul nostru web pentru a vă oferi cea mai relevantă experiență prin colectarea preferințelor dvs și repetarea vizitelor. Accesând butonul "Accept" dvs dați acord la utilizarea cookie-urilor. Accesați Setările Cookie-urilor pentru a afla mai multe despre cookie-urile utilizate pe site
+                    Folosim cookie-uri pe site-ul nostru web pentru a vă oferi cea mai relevantă experiență prin colectarea preferințelor dvs și repetarea vizitelor. Accesând butonul «Accept» dvs dați acord la utilizarea cookie-urilor. Accesați Setările Cookie-urilor pentru a afla mai multe despre cookie-urile utilizate pe site
                     <a rel="noopener" className={styles.link} href={''} target = "_blank">Accept cookie-urile</a>
                 </Typography>
                 {openCustom && <Grid sx={{marginTop: '10px'}}>

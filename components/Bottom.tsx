@@ -18,8 +18,8 @@ async function getBottomData (lang: string) {
 
 
 export default function Bottom () {
-    const [bottomData, setBottomData] = useState()
-    const [headerData, setHeaderData] = useState()
+    const [bottomData, setBottomData] = useState<any>()
+    const [headerData, setHeaderData] = useState<any>()
     const [lang, setLang] = useState('')
     useEffect(() => {
         setLang(localStorage.getItem('language') || 'ro')
