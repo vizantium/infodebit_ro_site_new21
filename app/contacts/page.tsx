@@ -2,7 +2,6 @@
 import React, {useEffect, useState} from 'react';
 import {useTheme} from '@mui/material/styles';
 import {Alert, Grid, Typography} from '@mui/material';
-import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 import starImg from "../assets/star.png";
 import TextField from '@mui/material/TextField';
@@ -13,7 +12,7 @@ import Button from "@mui/material/Button";
 import TopImage from "../../components/TopImage";
 import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 import parse from "html-react-parser";
-
+import * as emailjs from "@emailjs/browser";
 
 
 async function getContactData (lang: string) {
@@ -59,24 +58,24 @@ export default function Contacts() {
 
     const formSubmit = async (e: any) => {
         e.preventDefault()
-        await axios.post('http://localhost:5000/', {})
         setError(false)
-        // let data = {
-        //     name: name,
-        //     email: email,
-        //     subject: subject,
-        //     message: message
-        // }
-        // emailjs.send('service_tk6bisj', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
-        //     .then((result) => {
-        //         console.log(result.text);
-        //     }, (error) => {
-        //         console.log(error.text);
-        //     });
-        // setName('')
-        // setEmail('')
-        // setSubject('')
-        // setMessage('')
+        let data = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        }
+        console.log('jkfpds')
+        emailjs.send('service_wgkaczg', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
+            .then((result) => {
+                console.log(result);
+            }, (error) => {
+                console.log(error);
+            });
+        setName('')
+        setEmail('')
+        setSubject('')
+        setMessage('')
     }
 
     return (

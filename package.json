@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.15",
@@ -16,8 +18,10 @@
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.5.1",
     "html-react-parser": "^4.2.9",
+    "js-cookie": "^3.0.5",
     "next": "13.5.6",
     "react": "^18",
+    "react-cookie": "^6.1.1",
     "react-dom": "^18",
     "react-google-recaptcha": "^3.1.0",
     "react-redux": "^8.1.3",

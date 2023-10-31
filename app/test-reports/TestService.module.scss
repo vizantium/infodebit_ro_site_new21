@@ -17,10 +17,21 @@
 //}
 }
 
+
+
 .creditReport {
   //  [theme.breakpoints.only('lg')]: {
   //  marginLeft: "120px !important"
   //}
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+  .border {
+    margin-left: 120px !important;
+  }
+  .creditReport {
+    margin-left: 120px !important;
+  }
 }
 
 .divider {
