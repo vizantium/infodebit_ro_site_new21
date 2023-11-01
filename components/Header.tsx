@@ -134,7 +134,7 @@ export default function Header(){
                     sx={{color: 'rgb(255, 255, 255)', fontWeight: 400, fontSize: '15px', marginTop: '10px'}}
                 >
                     Folosim cookie-uri pe site-ul nostru web pentru a vă oferi cea mai relevantă experiență prin colectarea preferințelor dvs și repetarea vizitelor. Accesând butonul «Accept» dvs dați acord la utilizarea cookie-urilor. Accesați Setările Cookie-urilor pentru a afla mai multe despre cookie-urile utilizate pe site
-                    <a rel="noopener" className={styles.link} href={''} target = "_blank">Accept cookie-urile</a>
+                    <a rel="noopener" className={styles.link} href='/termeni.pdf' target = "_blank">Accept cookie-urile</a>
                 </Typography>
                 {openCustom && <Grid sx={{marginTop: '10px'}}>
                     <Typography sx={{color: '#44BCDD', fontSize: '15px', fontWeight: '600'}}>
