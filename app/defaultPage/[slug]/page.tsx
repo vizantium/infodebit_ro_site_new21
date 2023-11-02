@@ -33,7 +33,7 @@ export default function DefaultPage ({ params }: any) {
                                 <Typography variant='h4' >
                                     {parse(pageItems.attributes.title)}
                                 </Typography>
-                                <img alt={'defaultImg'} src={'http://192.168.134.197:3000' + pageItems.attributes.img?.data?.attributes?.url} style={{height: '200px', marginTop: '20px', marginBottom: '20px'}}/>
+                                <img alt={'defaultImg'} src={'https://admin.infodebit.ro' + pageItems.attributes.img?.data?.attributes?.url} style={{height: '200px', marginTop: '20px', marginBottom: '20px'}}/>
                                 <Typography>
                                     {parse(pageItems.attributes.text)}
                                 </Typography>
