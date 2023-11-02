@@ -32,11 +32,14 @@ export default function Contacts() {
     const [message, setMessage] = useState("");
     const [error, setError] = useState(false)
     const [contactItems, setContactItems] = useState<any>()
+    const [language, setLanguage] = useState('ro')
 
     useEffect(() => {
+        setLanguage(localStorage.getItem('language') || 'ro')
         getContactData(localStorage.getItem('language') || 'ro').then((res) => {
             setContactItems(res.data)
         })
+
     }, [])
 
     function onChange() {
@@ -200,7 +203,7 @@ export default function Contacts() {
                                         <Grid>
                                             <Button type="submit"
                                                     className={verified ? style.sendButton : style.sendButtonFalse}
-                                                    disabled={!verified}>{contactItems.attributes?.send_button}</Button>
+                                                    disabled={!verified}>{language == 'ro' ? 'Trimite' : 'Send'}</Button>
                                         </Grid>
                                         <br/> <br/>
                                     </form>
