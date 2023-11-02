@@ -47,10 +47,10 @@ export default function Bottom () {
                             <Typography sx={{marginTop: '13px', color: '#2F2B57', textDecoration: 'none'}}>
                                 {bottomData.attributes?.left.text}
                             </Typography>
-                            <Link className={styles.leftLink} href={`${bottomData.attributes?.left.termeni_link}`} target="_blank">
+                            <Link className={styles.leftLink} href={`/${bottomData.attributes?.left.termeni_link}`} target="_blank">
                                 {bottomData.attributes?.left.termeni_name}
                             </Link>
-                            <Link className={styles.leftLink} href={`${bottomData.attributes?.left.policyCookie_link}`} target="_blank">
+                            <Link className={styles.leftLink} href={`/${bottomData.attributes?.left.policyCookie_link}`} target="_blank">
                                 {bottomData.attributes?.left.policyCookie_name}
                             </Link>
                             <Link className={styles.leftLink} href={`${bottomData.attributes?.left.anpc_link}`} target="_blank">
@@ -88,7 +88,7 @@ export default function Bottom () {
 
                             </Grid>
                         </Grid>
-                        <Grid lg={4} xs={12} item sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end'}} className={styles.leftBottom}>
+                        <Grid lg={4} xs={12} item sx={{display: 'flex', flexDirection: 'column',  alignItems: 'flex-end'}} className={styles.leftBottom}>
                             <Grid>
                                 <Typography sx={{ fontSize: '20px', fontWeight: 600}} className={styles.textContact}>
                                     {bottomData.attributes?.right.title}
