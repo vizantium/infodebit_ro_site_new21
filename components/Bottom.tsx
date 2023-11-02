@@ -47,14 +47,14 @@ export default function Bottom () {
                             <Typography sx={{marginTop: '13px', color: '#2F2B57', textDecoration: 'none'}}>
                                 {bottomData.attributes?.left.text}
                             </Typography>
-                            <Link className={styles.leftLink} href={`https://admin.infodebit.ro${bottomData.attributes?.termeni?.data?.attributes?.url}` || ''} target="_blank">
-                                Termeni și condiții
+                            <Link className={styles.leftLink} href={`${bottomData.attributes?.left.termeni_link}`} target="_blank">
+                                {bottomData.attributes?.left.termeni_name}
                             </Link>
-                            <Link className={styles.leftLink} href={`https://admin.infodebit.ro${bottomData.attributes?.cookie_policy?.data?.attributes?.url}` || ''} target="_blank">
-                                Politica Cookie
+                            <Link className={styles.leftLink} href={`${bottomData.attributes?.left.policyCookie_link}`} target="_blank">
+                                {bottomData.attributes?.left.policyCookie_name}
                             </Link>
                             <Link className={styles.leftLink} href={`${bottomData.attributes?.left.anpc_link}`} target="_blank">
-                                {bottomData.attributes?.left.anpc_title}
+                                {bottomData.attributes?.left.anpc_name}
                             </Link>
                             <Grid sx={{marginTop: '26px'}}>
                                 <a rel="noopener" href={`${bottomData.attributes?.left.facebookLink === undefined ? 'https://facebook.com/infodebitromania' : bottomData.attributes?.right.facebookLink}`} target="_blank">
