@@ -31,14 +31,14 @@ export default function DefaultPage ({ params }: any) {
                             <Grid item xs={2}></Grid>
                             <Grid item xs={8}>
                                 <Typography variant='h4' >
-                                    {parse(pageItems.attributes?.title)}
+                                    {parse(String(pageItems.attributes?.title))}
                                 </Typography>
                                 {
                                     pageItems.attributes?.img?.data?.attributes?.url &&
                                     <img alt={'defaultImg'} src={'https://admin.infodebit.ro' + pageItems.attributes?.img?.data?.attributes?.url} style={{height: '200px', marginTop: '20px', marginBottom: '20px'}}/>
                                 }
                                 <Typography>
-                                    {parse(pageItems.attributes?.text)}
+                                    {parse(String(pageItems.attributes?.text))}
                                 </Typography>
                             </Grid>
                             <Grid item xs={2}></Grid>

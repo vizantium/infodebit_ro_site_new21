@@ -29,7 +29,7 @@ export default  function Home() {
         <Grid className={styles.mainGrid}>
             {homeData && <Grid className={styles.homeInfo}>
                 <Grid className={styles.mainText}>
-                    {parse(homeData.data.attributes?.main_text)}
+                    {homeData.data.attributes?.main_text == null ? '' : parse(String(homeData.data.attributes?.main_text))}
                 </Grid>
                 <Grid className={styles.gridButtons}>
                     <Link href={`/${homeData.data.attributes?.button_left_link}`}>
