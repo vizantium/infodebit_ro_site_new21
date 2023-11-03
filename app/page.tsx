@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 import {useEffect, useState} from "react";
+import parse from "html-react-parser";
 
 async function getHomeData (lang: string) {
     const {data} = await makeStrapiRequest.get(`/home-page?locale=${lang}`)
@@ -28,7 +29,7 @@ export default  function Home() {
         <Grid className={styles.mainGrid}>
             {homeData && <Grid className={styles.homeInfo}>
                 <Grid className={styles.mainText}>
-                    {homeData.data.attributes?.main_text}
+                    {parse(homeData.data.attributes?.main_text)}
                 </Grid>
                 <Grid className={styles.gridButtons}>
                     <Link href={`/${homeData.data.attributes?.button_left_link}`}>

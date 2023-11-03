@@ -6,30 +6,20 @@ import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 import Link from "next/link";
 
 
-async function getHeaderData () {
-    const {data} = await makeStrapiRequest.get(`/header-items?populate=*&filters[show_in_bottom]=true`)
-    return data.data
-}
-
 async function getBottomData (lang: string) {
-    const {data} = await makeStrapiRequest.get(`/bottom?populate=*&locale=${lang}`)
+    const {data} = await makeStrapiRequest.get(`/bottom?populate[left][populate]=bottom_left_icons.icon&populate[left][populate]=bottom_left&populate[center][populate]=bottom_center&populate[right][populate]=bottom_right&locale=${lang}`)
     return data.data
 }
 
 
 export default function Bottom () {
     const [bottomData, setBottomData] = useState<any>()
-    const [headerData, setHeaderData] = useState<any>()
     const [lang, setLang] = useState('')
     useEffect(() => {
         setLang(localStorage.getItem('language') || 'ro')
         getBottomData(localStorage.getItem('language') || 'ro').then((res) => {
             setBottomData(res)
             console.log(res)
-        })
-        getHeaderData().then((res) => {
-            console.log(res)
-            setHeaderData(res)
         })
     }, [])
 
@@ -47,28 +37,26 @@ export default function Bottom () {
                             <Typography sx={{marginTop: '13px', color: '#2F2B57', textDecoration: 'none'}}>
                                 {bottomData.attributes?.left.text}
                             </Typography>
-                            <Link className={styles.leftLink} href={`/${bottomData.attributes?.left.termeni_link}`} target="_blank">
-                                {bottomData.attributes?.left.termeni_name}
-                            </Link>
-                            <Link className={styles.leftLink} href={`/${bottomData.attributes?.left.policyCookie_link}`} target="_blank">
-                                {bottomData.attributes?.left.policyCookie_name}
-                            </Link>
-                            <Link className={styles.leftLink} href={`${bottomData.attributes?.left.anpc_link}`} target="_blank">
-                                {bottomData.attributes?.left.anpc_name}
-                            </Link>
+                            {
+                                    bottomData && bottomData.attributes?.left?.bottom_left?.map((item: any, index: any) => (
+                                        item.type == 'string' ? <Typography key={index} className={styles.leftLink}>
+                                                {item.text}
+                                            </Typography>
+                                         : <Link  key={index} className={styles.leftLink} href={`/${item.link}`} target="_blank">
+                                            {item.text}
+                                        </Link>
+                                ))
+                            }
                             <Grid sx={{marginTop: '26px'}}>
-                                <a rel="noopener" href={`${bottomData.attributes?.left.facebookLink === undefined ? 'https://facebook.com/infodebitromania' : bottomData.attributes?.right.facebookLink}`} target="_blank">
-                                    <img alt={'facebook'} src='/facebook.png' style={{width: '39px', cursor: 'pointer'}}/>
-                                </a>
-                                <a rel="noopener" href={`${bottomData.attributes?.left.viberLink}`} target="_blank">
-                                    <img alt={'viber'} src='/viber.png' style={{width: '39px', cursor: 'pointer', marginLeft: '5px'}}/>
-                                </a>
-                                <a rel="noopener" href={`${bottomData.attributes?.left.telegramLink}`} target="_blank">
-                                    <img alt={'telegram'} src='/telegram.png' style={{width: '39px', cursor: 'pointer', marginLeft: '5px'}}/>
-                                </a>
-                                <a rel="noopener" href={`${bottomData.attributes?.left.whatsappLink}`} target="_blank">
-                                    <img alt={'whatsapp'} src='/whatsapp.png' style={{width: '39px', cursor: 'pointer', marginLeft: '5px'}}/>
-                                </a>
+                                {
+                                    bottomData && bottomData.attributes?.left?.bottom_left_icons?.map((item: any, index: any) => (
+                                        item.link === null ? <img key={index} alt={'img'} src={'https://admin.infodebit.ro' + item.icon?.data?.attributes?.url} style={{width: '39px', cursor: 'pointer'}}/> :
+                                            <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`} target="_blank">
+                                            <img alt={'img'} src={'https://admin.infodebit.ro' + item.icon?.data?.attributes?.url} style={{ cursor: 'pointer'}}/>
+                                        </a>
+
+                                    ))
+                                }
                             </Grid>
                         </Grid>
                         <Grid lg={4} xs={12} item sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}} >
@@ -77,31 +65,36 @@ export default function Bottom () {
                                     {bottomData.attributes?.center.title}
                                 </Typography>
                                 {
-                                   headerData && headerData.map((item: any, index: any) => (
-                                        <Link key={index} style={{textDecoration: 'none'}} href={`/${item.attributes?.link}`}>
-                                            <Typography sx={{marginTop: '13px', color: '#2F2B57', textDecoration: 'none'}} className={styles.textCenter}>
-                                                {lang === 'ro' ? item.attributes?.title_RO : item.attributes?.title_EN}
+                                    bottomData && bottomData.attributes?.center?.bottom_center?.map((item: any, index: any) => (
+                                        item.type == 'string' ? <Typography key={index} className={styles.leftLink}>
+                                                {item.text}
                                             </Typography>
-                                        </Link>
+                                            : <Link key={index} className={styles.leftLink} href={`/${item.link}`} target="_blank">
+                                                {item.text}
+                                            </Link>
                                     ))
                                 }
 
                             </Grid>
                         </Grid>
-                        <Grid lg={4} xs={12} item sx={{display: 'flex', flexDirection: 'column',  alignItems: 'flex-end'}} className={styles.leftBottom}>
-                            <Grid>
+                        <Grid lg={4} xs={12} item sx={{display: 'flex', flexDirection: 'column',  alignItems: 'flex-end', paddingLeft: '20px'}} className={styles.leftBottom}>
+                            <Grid sx={{display: 'flex', flexDirection: 'column'}}>
                                 <Typography sx={{ fontSize: '20px', fontWeight: 600}} className={styles.textContact}>
                                     {bottomData.attributes?.right.title}
                                 </Typography>
-                                <Typography sx={{marginTop: '15px', marginBottom: '15px'}} className={styles.textCenter}>
-                                    {bottomData.attributes?.right.address}
-                                </Typography>
-                                <a style={{color: 'rgb(47, 43, 87)', textDecoration: 'none', fontFamily: 'Roboto, Helvetica, Arial, sans-serif'}} className={styles.textCenter} href={`mailto:${bottomData.attributes?.right.email}`}>
-                                    {bottomData.attributes?.right.email}
-                                </a>
-                                <Typography sx={{marginTop: '15px'}} className={styles.textCenter}>
-                                    {bottomData.attributes?.right.time}
-                                </Typography>
+                                {
+                                    bottomData && bottomData.attributes?.right?.bottom_right?.map((item: any, index: any) => (
+                                        item.type == 'string' ? <Typography key={index} className={styles.leftLink}>
+                                                {item.text}
+                                            </Typography>
+                                            : item.type == 'email' ?
+                                                <a key={index} className={styles.leftLink} href={`mailto:${item.text}`} target="_blank">
+                                                    {item.text}
+                                                </a> : <Link key={index} className={styles.leftLink} href={`/${item.link}`} target="_blank">
+                                                    {item.text}
+                                                </Link>
+                                    ))
+                                }
                             </Grid>
                         </Grid>
                     </Grid>
