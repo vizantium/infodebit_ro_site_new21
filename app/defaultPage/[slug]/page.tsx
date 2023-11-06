@@ -35,7 +35,7 @@ export default function DefaultPage ({ params }: any) {
                                 </Typography>
                                 {
                                     pageItems.attributes?.img?.data?.attributes?.url &&
-                                    <img alt={'defaultImg'} src={'https://admin.infodebit.ro' + pageItems.attributes?.img?.data?.attributes?.url} style={{height: '200px', marginTop: '20px', marginBottom: '20px'}}/>
+                                    <img alt={'defaultImg'} src={'http://localhost:1337' + pageItems.attributes?.img?.data?.attributes?.url} style={{height: '200px', marginTop: '20px', marginBottom: '20px'}}/>
                                 }
                                 <Typography>
                                     {parse(String(pageItems.attributes?.text))}

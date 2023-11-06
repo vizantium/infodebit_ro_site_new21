@@ -23,6 +23,7 @@ export default function Bottom () {
         })
     }, [])
 
+
     return (
         <>
 
@@ -33,9 +34,6 @@ export default function Bottom () {
                         <Grid sx={{paddingLeft: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}} className={styles.rightBottom} item lg={4} xs={12}>
                             <Typography sx={{fontSize: '20px', fontWeight: 600}}>
                                 {bottomData.attributes?.left.title}
-                            </Typography>
-                            <Typography sx={{marginTop: '13px', color: '#2F2B57', textDecoration: 'none'}}>
-                                {bottomData.attributes?.left.text}
                             </Typography>
                             {
                                     bottomData && bottomData.attributes?.left?.bottom_left?.map((item: any, index: any) => (
@@ -52,7 +50,7 @@ export default function Bottom () {
                                     bottomData && bottomData.attributes?.left?.bottom_left_icons?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'} src={'https://admin.infodebit.ro' + item.icon?.data?.attributes?.url} style={{width: '39px', cursor: 'pointer'}}/> :
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`} target="_blank">
-                                            <img alt={'img'} src={'https://admin.infodebit.ro' + item.icon?.data?.attributes?.url} style={{ cursor: 'pointer'}}/>
+                                            <img alt={'img'} src={'http://localhost:1337' + item.icon?.data?.attributes?.url} style={{ cursor: 'pointer'}}/>
                                         </a>
 
                                     ))

@@ -34,6 +34,13 @@ export default function Contacts() {
     const [contactItems, setContactItems] = useState<any>()
     const [language, setLanguage] = useState('ro')
 
+
+    function extract(str) {
+        const email =
+            /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
+        return str.match(email);
+    }
+
     useEffect(() => {
         setLanguage(localStorage.getItem('language') || 'ro')
         getContactData(localStorage.getItem('language') || 'ro').then((res) => {
@@ -90,53 +97,20 @@ export default function Contacts() {
                         <Grid container direction="row">
                             <Grid item xs={11} md={5} lg={4}>
                                 <Grid item container direction="column" ml={matchesMD ? 4 : 25} xs={10.5} sm={30}>
-                                    {/*<Typography variant="h5" className={style.titleContacts}>{parse(String(contactItems.attributes?.title_left))}</Typography>*/}
-                                    {/*<br/> <br/>*/}
-                                    {/*<Typography*/}
-                                    {/*    className={style.titleContacts}*/}
-                                    {/*    sx={{marginTop: '0'}}*/}
-                                    {/*    dangerouslySetInnerHTML={{*/}
-                                    {/*        __html: `${contactItems.attributes?.credit_history_left}`*/}
-                                    {/*    }}*/}
-                                    {/*></Typography>*/}
                                     <Typography
                                         className={style.titleContacts}
                                         sx={{marginTop: '0'}}
-                                        dangerouslySetInnerHTML={{
-                                            __html: `${contactItems.attributes?.left}`
-                                        }}
-                                    ></Typography>
-                                    {/*<br/>*/}
-                                    {/*<Typography*/}
-                                    {/*    className={style.textContacts2}*/}
-                                    {/*    sx={{marginTop: '16px'}}*/}
-                                    {/*    dangerouslySetInnerHTML={{*/}
-                                    {/*        __html: `${contactItems.attributes?.social_headquarters_left}`*/}
-                                    {/*    }}*/}
-                                    {/*>*/}
-                                    {/*</Typography>*/}
-                                    {/*<br/>*/}
-                                    {/*<Typography*/}
-                                    {/*    sx={{marginTop: '20px'}}*/}
-                                    {/*    dangerouslySetInnerHTML={{*/}
-                                    {/*        __html: `${contactItems.attributes?.cui_left}`*/}
-                                    {/*    }}*/}
-                                    {/*></Typography>*/}
-                                    {/*<Typography*/}
-                                    {/*    sx={{marginTop: '0'}}*/}
-                                    {/*    dangerouslySetInnerHTML={{*/}
-                                    {/*        __html: `${contactItems.attributes?.cif_left}`*/}
-                                    {/*    }}*/}
-                                    {/*></Typography>*/}
-                                    {/*<br/>*/}
+                                    >
+                                        {parse(String(contactItems.attributes?.left))}
+                                    </Typography>
                                     <Typography
                                         sx={{marginTop: '20px'}}
                                         className={style.textContacts3}
                                     >
-                                        <a href="mailto:info@infodebit.ro"
-                                           style={{textDecoration: "none", color: "inherit"}} dangerouslySetInnerHTML={{
-                                            __html: `${contactItems.attributes?.email_left}`
-                                        }}></a>
+                                        <a href={`mailto:${extract(String(contactItems.attributes?.email_left))}`}
+                                           style={{textDecoration: "none", color: "inherit"}}>
+                                            {parse(String(contactItems.attributes?.email_left))}
+                                        </a>
                                     </Typography>
                                 </Grid>
                             </Grid>

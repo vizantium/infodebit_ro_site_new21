@@ -22,7 +22,6 @@ import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 
 async function getTestReports(lang: string) {
     const {data} = await makeStrapiRequest.get(`/test-service?locale=${lang}`)
-
     return data
 }
 
@@ -46,7 +45,8 @@ export default function TestService() {
                     <Grid container direction="column">
                         <br/> <br/>
                         <Grid item ml={matchesMD ? 7.5 : 50} className={style.creditReport}>
-                            <Typography variant='h5' className={style.titleTestService}>{parse(String(testServiceItems.attributes?.title))}</Typography>
+                            {testServiceItems && testServiceItems.attributes === undefined ? <div/> : <Typography variant='h5'
+                                         className={style.titleTestService}>{parse(String(testServiceItems.attributes?.title))}</Typography>}
                         </Grid>
                         <br/> <br/>
                         <Grid item className={style.border} style={{marginBottom: "2em"}}>
