@@ -35,7 +35,7 @@ export default function Contacts() {
     const [language, setLanguage] = useState('ro')
 
 
-    function extract(str) {
+    function extract(str: string) {
         const email =
             /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
         return str.match(email);
