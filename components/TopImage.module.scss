@@ -11,14 +11,14 @@
 
 @media (max-width: 900px) {
   .topImage {
-    background-image: url('./../public/topImageTablet.jpg') !important;
+    //background-image: url('./../public/topImageTablet.jpg') !important;
     height: 10em !important;
   }
 }
 
 @media (max-width: 600px) {
   .topImage {
-    background-image: url('./../public/topImageMobile.jpg') !important;
+    //background-image: url('./../public/topImageMobile.jpg') !important;
     height: 8em !important;
   }
 }

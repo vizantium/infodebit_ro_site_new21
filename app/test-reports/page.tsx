@@ -17,6 +17,7 @@ import TopImage from "../../components/TopImage";
 import parse from "html-react-parser";
 import style from './TestService.module.scss'
 import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
+import Image from "next/image";
 
 
 
@@ -52,7 +53,7 @@ export default function TestService() {
                         <Grid item className={style.border} style={{marginBottom: "2em"}}>
                             <Grid container direction="column" ml={matchesSM ? 1 : 5} className={style.Mobile}>
                                 <Grid item container direction="row" justifyContent="space-between">
-                                    <Grid item mt={matchesSM ? 1 : 5}><img alt='company logo' src='/logo.png'
+                                    <Grid item mt={matchesSM ? 1 : 5}><Image width={200} height={50} alt='company logo' src='/logo.png'
                                                                            className={style.logoMobile}/></Grid>
                                     <Grid item mt={matchesSM ? 1 : 5} mr={matchesSM ? 2 : 10} style={{textAlign: 'right'}}>
                                         <Typography className={style.size}>Raport nr.: 26652</Typography>
@@ -105,7 +106,7 @@ export default function TestService() {
                                 <Grid container direction="row">
                                     <Grid item>
                                         <Grid item container direction="column">
-                                            <Grid item mt={2}><img alt={'female'} src='/female.png'/></Grid>
+                                            <Grid item mt={2}><Image width={20} height={18} alt={'female'} src='/female.png'/></Grid>
                                             <Typography mt={0.5} className={style.size3}>Feminin</Typography>
                                         </Grid>
                                     </Grid>
@@ -118,11 +119,8 @@ export default function TestService() {
                                     </Grid>
                                     <Grid item>
                                         <Grid item container direction="column" ml={4}>
-                                            <Grid item mt={1.1}><Typography className={style.size3}><img alt={'database'} src='/database.png'
-                                                                                                           style={{
-                                                                                                               width: "30px",
-                                                                                                               height: "30px"
-                                                                                                           }}/>Nu
+                                            <Grid item mt={1.1}><Typography className={style.size3}><Image width={30} height={30} alt={'database'} src='/database.png'
+                                                                                                           />Nu
                                                 sunt</Typography> </Grid>
                                             <Typography className={style.size3}>date</Typography>
                                         </Grid>

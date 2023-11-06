@@ -28,7 +28,7 @@ export default  function Home() {
   return (
         <Grid className={styles.mainGrid}>
             {homeData && <Grid className={styles.homeInfo}>
-                <Grid className={styles.mainText}>
+                <Grid  className={styles.mainText}>
                     {homeData.data.attributes?.main_text == null ? '' : parse(String(homeData.data.attributes?.main_text))}
                 </Grid>
                 <Grid className={styles.gridButtons}>

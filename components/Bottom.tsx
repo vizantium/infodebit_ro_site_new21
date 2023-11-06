@@ -19,7 +19,6 @@ export default function Bottom () {
         setLang(localStorage.getItem('language') || 'ro')
         getBottomData(localStorage.getItem('language') || 'ro').then((res) => {
             setBottomData(res)
-            console.log(res)
         })
     }, [])
 
@@ -40,7 +39,7 @@ export default function Bottom () {
                                         item.type == 'string' ? <Typography key={index} className={styles.leftLink}>
                                                 {item.text}
                                             </Typography>
-                                         : <Link  key={index} className={styles.leftLink} href={`/${item.link}`} target="_blank">
+                                         : <Link  key={index} className={styles.leftLink} href={`${item.link}`} target="_blank">
                                             {item.text}
                                         </Link>
                                 ))
@@ -67,7 +66,7 @@ export default function Bottom () {
                                         item.type == 'string' ? <Typography key={index} className={styles.leftLink}>
                                                 {item.text}
                                             </Typography>
-                                            : <Link key={index} className={styles.leftLink} href={`/${item.link}`} target="_blank">
+                                            : <Link key={index} className={styles.leftLink} href={`${item.link}`} target="_blank">
                                                 {item.text}
                                             </Link>
                                     ))
@@ -88,7 +87,7 @@ export default function Bottom () {
                                             : item.type == 'email' ?
                                                 <a key={index} className={styles.leftLink} href={`mailto:${item.text}`} target="_blank">
                                                     {item.text}
-                                                </a> : <Link key={index} className={styles.leftLink} href={`/${item.link}`} target="_blank">
+                                                </a> : <Link key={index} className={styles.leftLink} href={`${item.link}`} target="_blank">
                                                     {item.text}
                                                 </Link>
                                     ))
