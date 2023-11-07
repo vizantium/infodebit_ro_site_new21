@@ -41,7 +41,7 @@
     }
     .mainText {
         font-weight: 400 !important;
-        font-size: 78px !important;
+        font-size: 68px !important;
         line-height: 85px !important;
     }
     .mainGrid {
@@ -67,7 +67,7 @@
     }
     .mainText {
         font-weight: 400 !important;
-        font-size: 68px !important;
+        font-size: 46px !important;
         line-height: 75px !important;
         text-align: center !important;
     }
@@ -83,3 +83,9 @@
     }
 }
 
+@media (max-width: 600px) {
+    .mainText {
+        font-size: 39px !important;
+
+    }
+}

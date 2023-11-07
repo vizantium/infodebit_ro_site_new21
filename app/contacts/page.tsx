@@ -165,7 +165,7 @@ export default function Contacts() {
                                             ></label></Grid>
                                             <Grid sx={{marginLeft: '5px'}} item mt={-1.2}><img alt={'starImg'} src='/starImg.png'/></Grid>
                                         </Grid>
-                                        <Grid item >
+                                        <Grid item className={style.textAreaGrid}>
                                             <TextareaAutosize
                                                 required className={style.inputMessage} onChange={handleMessage}
                                                               value={message} minRows={12} maxLength={2000}/>

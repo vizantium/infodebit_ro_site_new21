@@ -94,7 +94,7 @@
     margin-bottom: -25px !important;
   }
   .textContacts3 {
-    margin-top: -15px !important;
+    margin-top: 5px !important;
     margin-bottom: -5px !important;
   }
 }
@@ -113,7 +113,9 @@
 .inputMessage {
   width: 35.3vw !important;
 }
+.textAreaGrid {
 
+}
 @media (max-width: 600px) {
   .inputStyle{
     width: 85vw !important;
@@ -126,8 +128,13 @@
 @media (max-width: 900px) {
   .inputStyle{
     width: 92vw !important;
+    padding-right: 30px !important;
   }
   .inputMessage {
-    width: 91vw !important;
+    width: 84vw !important;
+
+  }
+  .textAreaGrid {
+
   }
 }
