@@ -32,8 +32,9 @@ export default  function Home() {
                     {homeData.data.attributes?.main_text == null ? '' : parse(String(homeData.data.attributes?.main_text))}
                 </Grid>
                 <Grid className={styles.gridButtons}>
-                    <Link href={`/${homeData.data.attributes?.button_left_link}`}>
+                    <Link style={{textDecoration: 'none'}} href={`/${homeData.data.attributes?.button_left_link}`}>
                         <Button className={styles.button} sx={{
+                            textDecoration: 'none',
                             color: '#666666', "&:hover": {
                                 background: '#666666',
                                 color: 'white'
@@ -42,8 +43,9 @@ export default  function Home() {
                             {homeData.data.attributes?.button_left_text}
                         </Button>
                     </Link>
-                    <Link href={`/${homeData.data.attributes?.button_right_link}`}>
+                    <Link style={{textDecoration: 'none'}} href={`/${homeData.data.attributes?.button_right_link}`}>
                         <Button className={styles.button} sx={{
+                            textDecoration: 'none',
                             color: 'white', background: '#666666', "&:hover": {
                                 color: "#666666"
                             }

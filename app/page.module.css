@@ -1,5 +1,5 @@
 .mainGrid {
-    background-image: url("../public/background.png") !important;
+    background-image: url("../public/background.webp") !important;
     background-size: cover !important;
     height: calc(100vh - 80px) !important;
     min-height: 900px !important;

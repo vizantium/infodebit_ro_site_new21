@@ -116,63 +116,7 @@ export default function Header(){
 
     const tabs = (
         <React.Fragment>
-            {!isCookie && <Grid
-                sx={{position: 'fixed',
-                    right: '30px',
-                    bottom: '42px',
-                    maxWidth: '375px',
-                    backgroundColor: '#3B3646',
-                    padding: '20px',
-                    borderRadius: '5px',
-                    boxShadow: '0 6px 6px rgba(0,0,0,0.25)',
-                    zIndex: '10000'}}
-            >
-                <Typography
-                    sx={{color: 'rgb(68, 188, 221)', fontSize: '15px', fontWeight: 700}}
-                >🍪Politica de confidențialitate și cookie-uri</Typography>
-                <Typography
-                    sx={{color: 'rgb(255, 255, 255)', fontWeight: 400, fontSize: '15px', marginTop: '10px'}}
-                >
-                    Folosim cookie-uri pe site-ul nostru web pentru a vă oferi cea mai relevantă experiență prin colectarea preferințelor dvs și repetarea vizitelor. Accesând butonul «Accept» dvs dați acord la utilizarea cookie-urilor. Accesați Setările Cookie-urilor pentru a afla mai multe despre cookie-urile utilizate pe site
-                    <a rel="noopener" className={styles.link} href='/termeni.pdf' target = "_blank">Accept cookie-urile</a>
-                </Typography>
-                {openCustom && <Grid sx={{marginTop: '10px'}}>
-                    <Typography sx={{color: '#44BCDD', fontSize: '15px', fontWeight: '600'}}>
-                        Select which cookies you want to accept
-                    </Typography>
-                    <FormGroup sx={{display: 'flex', flexDirection: 'row'}}>
-                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
-                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox disabled={true} sx={{padding: '7px'}} size={'small'} defaultChecked />} label="Essential" />
-                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
-                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox onChange={handleChangePref} checked={checkPref} sx={{padding: '7px'}} size={'small'} />} label="Site Preferences" />
-                    </FormGroup>
-                    <FormGroup sx={{display: 'flex', flexDirection: 'row'}}>
-                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
-                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox onChange={handleChangeAnalyt} checked={checkAnalyt} sx={{padding: '7px'}} size={'small'} defaultChecked />} label="Analytics" />
-                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
-                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox onChange={handleChangeMarkt} checked={checkMarkt} sx={{padding: '7px'}} size={'small'} />} label="Marketing" />
-                    </FormGroup>
-                </Grid>}
-                <Grid sx={{display: 'flex', justifyContent: 'space-around', marginTop: '15px'}}>
-                    <Button sx={{textTransform: 'none', backgroundColor: 'rgb(68, 188, 221)', color: 'white',
-                        ':hover': {
-                            bgcolor: 'white',
-                            color: 'rgb(68, 188, 221)',
-                        },
-                    }}
-                            onClick={setCookieAccess}>
-                        Accept cookie-urile
-                    </Button>
-                    <Button sx={{textTransform: 'none', backgroundColor: 'white', color: 'rgb(68, 188, 221)',
-                        ':hover': {
-                            bgcolor: 'rgb(68, 188, 221)',
-                            color: 'white',
-                        },
-                    }} onClick={handleOpenCustom}>
-                        Customise Cookies
-                    </Button>
-                </Grid>
-            </Grid>}
+
             <Tabs  value={value} onChange={handleChange}
                    TabIndicatorProps={{style: {background:'white'}}}
                     sx={{borderBottom: 'none'}} className={styles.tabContainer}>
@@ -281,6 +225,63 @@ export default function Header(){
 
     return (
         <AppBar style={{position: 'fixed'}} position="fixed" className={styles.appbar} sx={{backgroundColor: 'white'}}>
+            {!isCookie && <Grid
+                sx={{position: 'fixed',
+                    right: '30px',
+                    bottom: '42px',
+                    maxWidth: '375px',
+                    backgroundColor: '#3B3646',
+                    padding: '20px',
+                    borderRadius: '5px',
+                    boxShadow: '0 6px 6px rgba(0,0,0,0.25)',
+                    zIndex: '10000'}}
+            >
+                <Typography
+                    sx={{color: 'rgb(68, 188, 221)', fontSize: '15px', fontWeight: 700}}
+                >🍪Politica de confidențialitate și cookie-uri</Typography>
+                <Typography
+                    sx={{color: 'rgb(255, 255, 255)', fontWeight: 400, fontSize: '15px', marginTop: '10px'}}
+                >
+                    Folosim cookie-uri pe site-ul nostru web pentru a vă oferi cea mai relevantă experiență prin colectarea preferințelor dvs și repetarea vizitelor. Accesând butonul «Accept» dvs dați acord la utilizarea cookie-urilor. Accesați Setările Cookie-urilor pentru a afla mai multe despre cookie-urile utilizate pe site
+                    <a rel="noopener" className={styles.link} href='/termeni.pdf' target = "_blank">Accept cookie-urile</a>
+                </Typography>
+                {openCustom && <Grid sx={{marginTop: '10px'}}>
+                    <Typography sx={{color: '#44BCDD', fontSize: '15px', fontWeight: '600'}}>
+                        Select which cookies you want to accept
+                    </Typography>
+                    <FormGroup sx={{display: 'flex', flexDirection: 'row'}}>
+                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
+                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox disabled={true} sx={{padding: '7px'}} size={'small'} defaultChecked />} label="Essential" />
+                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
+                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox onChange={handleChangePref} checked={checkPref} sx={{padding: '7px'}} size={'small'} />} label="Site Preferences" />
+                    </FormGroup>
+                    <FormGroup sx={{display: 'flex', flexDirection: 'row'}}>
+                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
+                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox onChange={handleChangeAnalyt} checked={checkAnalyt} sx={{padding: '7px'}} size={'small'} defaultChecked />} label="Analytics" />
+                        <FormControlLabel componentsProps={{ typography: { fontSize: '14px', fontWeight: '400' } }}
+                                          sx={{marginLeft: '15px', fontWeight: 400, color: 'white', fontSize: '13px'}} control={<Checkbox onChange={handleChangeMarkt} checked={checkMarkt} sx={{padding: '7px'}} size={'small'} />} label="Marketing" />
+                    </FormGroup>
+                </Grid>}
+                <Grid sx={{display: 'flex', justifyContent: 'space-around', marginTop: '15px'}}>
+                    <Button sx={{textTransform: 'none', backgroundColor: 'rgb(68, 188, 221)', color: 'white',
+                        ':hover': {
+                            bgcolor: 'white',
+                            color: 'rgb(68, 188, 221)',
+                        },
+                    }}
+                            onClick={setCookieAccess}>
+                        Accept cookie-urile
+                    </Button>
+                    <Button sx={{textTransform: 'none', backgroundColor: 'white', color: 'rgb(68, 188, 221)',
+                        ':hover': {
+                            bgcolor: 'rgb(68, 188, 221)',
+                            color: 'white',
+                        },
+                    }} onClick={handleOpenCustom}>
+                        Customise Cookies
+                    </Button>
+                </Grid>
+            </Grid>}
             <div className={styles.toolbar} style={{display: 'flex', justifyContent: 'space-between'}} >
                 <Link href={'/'} style={{marginTop: '5px'}}>
                     <Button disableRipple
