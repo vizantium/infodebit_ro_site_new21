@@ -225,17 +225,7 @@ export default function Header(){
 
     return (
         <AppBar style={{position: 'fixed'}} position="fixed" className={styles.appbar} sx={{backgroundColor: 'white'}}>
-            {!isCookie && <Grid
-                sx={{position: 'fixed',
-                    right: '30px',
-                    bottom: '42px',
-                    maxWidth: '375px',
-                    backgroundColor: '#3B3646',
-                    padding: '20px',
-                    borderRadius: '5px',
-                    boxShadow: '0 6px 6px rgba(0,0,0,0.25)',
-                    zIndex: '10000'}}
-            >
+            {!isCookie && <div className={styles.cookieGrid}>
                 <Typography
                     sx={{color: 'rgb(68, 188, 221)', fontSize: '15px', fontWeight: 700}}
                 >🍪Politica de confidențialitate și cookie-uri</Typography>
@@ -281,7 +271,7 @@ export default function Header(){
                         Customise Cookies
                     </Button>
                 </Grid>
-            </Grid>}
+            </div>}
             <div className={styles.toolbar} style={{display: 'flex', justifyContent: 'space-between'}} >
                 <Link href={'/'} style={{marginTop: '5px'}}>
                     <Button disableRipple

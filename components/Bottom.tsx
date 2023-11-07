@@ -49,7 +49,7 @@ export default function Bottom () {
                                     bottomData && bottomData.attributes?.left?.bottom_left_icons?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'} src={'https://admin.infodebit.ro' + item.icon?.data?.attributes?.url} style={{width: '39px', cursor: 'pointer'}}/> :
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`} target="_blank">
-                                            <img alt={'img'} src={'https://admin.infodebit.ro' + item.icon?.data?.attributes?.url} style={{ cursor: 'pointer'}}/>
+                                            <img alt={'img'} src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{ cursor: 'pointer'}}/>
                                         </a>
 
                                     ))

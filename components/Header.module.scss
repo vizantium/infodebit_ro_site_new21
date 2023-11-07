@@ -178,6 +178,17 @@ display: flex !important;
   width: 50px !important;
   font-weight: bold !important;
 }
+.cookieGrid {
+  position: fixed !important;
+  right: 30px !important;
+  bottom: 42px !important;
+  max-width: 375px !important;
+  background-color: #3B3646 !important;
+  padding: 20px !important;
+  border-radius: 5px !important;
+  box-shadow: 0 6px 6px rgba(0,0,0,0.25) !important;
+  z-index: 10000 !important;
+}
 .appbar {
   position: relative;
   z-index: 1300 !important;
@@ -226,4 +237,11 @@ display: flex !important;
   color: white;
   border-bottom-color: #44BCDD;
   transition: all 0.3s ease-in;
+}
+
+@media (max-width: 430px) {
+  .cookieGrid {
+    right: 0 !important;
+    bottom: 0 !important;
+  }
 }

@@ -8,7 +8,7 @@ const TopImage = () => {
 
   return (
     <Grid item>
-        <Image width={2000} height={260} alt='topImg' src='/topImg.jpg' className={style.topImage}/>
+        <Image priority={true} width={2000} height={260} alt='topImg' src='/topImg.webp' className={style.topImage}/>
     </Grid>
   )
 }
