@@ -33,7 +33,7 @@ export default function Contacts() {
     const [error, setError] = useState(false)
     const [contactItems, setContactItems] = useState<any>()
     const [language, setLanguage] = useState('ro')
-    const recaptchaRef = createRef();
+    const recaptchaRef = createRef<any>();
     const [isSuccess, setIsSuccess] = useState(false)
 
     function extract(str: string) {
