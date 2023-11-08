@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useState} from 'react';
+import React, {createRef, useEffect, useState} from 'react';
 import {useTheme} from '@mui/material/styles';
 import {Alert, Grid, Typography} from '@mui/material';
 import ReCAPTCHA from "react-google-recaptcha";
@@ -25,7 +25,7 @@ export default function Contacts() {
     // const classes = useStyles();
     const theme = useTheme();
     const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-    const [verified, setVerified] = useState(false);
+    const [activeButton, setActiveButton] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [subject, setSubject] = useState("");
@@ -33,7 +33,8 @@ export default function Contacts() {
     const [error, setError] = useState(false)
     const [contactItems, setContactItems] = useState<any>()
     const [language, setLanguage] = useState('ro')
-
+    const recaptchaRef = createRef();
+    const [isSuccess, setIsSuccess] = useState(false)
 
     function extract(str: string) {
         const email =
@@ -50,7 +51,7 @@ export default function Contacts() {
     }, [])
 
     function onChange() {
-        setVerified(true);
+        setActiveButton(true);
     }
 
     const handleName = (e: any) => {
@@ -68,19 +69,26 @@ export default function Contacts() {
 
     const formSubmit = async (e: any) => {
         e.preventDefault()
+        console.log('kfoper')
+        recaptchaRef.current.reset()
+        setActiveButton(false)
         setError(false)
+        setIsSuccess(false)
         let data = {
             name: name,
             email: email,
             subject: subject,
             message: message
         }
-        emailjs.send('service_tk6bisj', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
+        await emailjs.send('service_jhc4k1d', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
             .then((result) => {
                 console.log(result);
+                setIsSuccess(true)
             }, (error) => {
                 console.log(error);
+                setError(true)
             });
+        setActiveButton(false)
         setName('')
         setEmail('')
         setSubject('')
@@ -172,19 +180,21 @@ export default function Contacts() {
                                         </Grid>
                                         <Grid mt={1}>
                                             <ReCAPTCHA
+                                                ref={recaptchaRef}
                                                 sitekey="6LfIDK8oAAAAABL4Q505hc7pRzJXI1LOmuCrJ0jW"
                                                 onChange={onChange}
-                                                hl={`en`}
+                                                hl={`${language}`}
                                             />
                                         </Grid>
                                         <br/>
                                         {error &&
-                                            <Alert severity="error" sx={{marginBottom: '30px'}}>Error, check console
-                                                log</Alert>}
+                                            <Alert className={style.alert} severity="error" sx={{marginBottom: '30px'}}>{language == 'ro' ? 'Error' : 'Eroare'}</Alert>}
+                                        {isSuccess &&
+                                            <Alert className={style.alert} severity="success" sx={{marginBottom: '30px'}}>{language == 'ro' ? 'Trimis' : 'Sent'}</Alert>}
                                         <Grid>
                                             <Button type="submit"
-                                                    className={verified ? style.sendButton : style.sendButtonFalse}
-                                                    disabled={!verified}>{language == 'ro' ? 'Trimite' : 'Send'}</Button>
+                                                    className={activeButton ? style.sendButton : style.sendButtonFalse}
+                                                    disabled={!activeButton}>{language == 'ro' ? 'Trimite' : 'Send'}</Button>
                                         </Grid>
                                         <br/> <br/>
                                     </form>

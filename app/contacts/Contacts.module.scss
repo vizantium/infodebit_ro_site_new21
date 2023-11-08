@@ -116,12 +116,18 @@
 .textAreaGrid {
 
 }
+.alert {
+
+}
 @media (max-width: 600px) {
   .inputStyle{
     width: 85vw !important;
   }
   .inputMessage {
     width: 85vw !important;
+  }
+  .alert {
+    width: 80vw !important;
   }
 }
 

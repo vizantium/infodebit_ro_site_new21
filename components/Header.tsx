@@ -21,6 +21,7 @@ import {useCookies} from "react-cookie";
 import Cookies from 'js-cookie';
 import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 import styles from './Header.module.scss'
+import Image from "next/image";
 // import termeni from './../public/termeni.pdf'
 
 
@@ -276,7 +277,7 @@ export default function Header(){
                 <Link href={'/'} style={{marginTop: '5px'}}>
                     <Button disableRipple
                             onClick={() => {setOpenDrawer(false); setValue(0)}} className={styles.logoContainer}>
-                        <img alt='company logo' src='/logo.png'/>
+                        <Image width={200} height={47} alt='company logo' src='/logo.webp'/>
                     </Button>
                 </Link>
                 {matches ? drawer : tabs}
