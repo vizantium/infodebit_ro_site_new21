@@ -30,6 +30,16 @@
   font-size: 16px !important;
   font-family: "Roboto","Helvetica","Arial",sans-serif !important;
 }
+.icons {
+
+}
+
+@media (max-width: 600px) {
+  .icons {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
 
 @media (max-width: 1200px) {
   .rightBottom {

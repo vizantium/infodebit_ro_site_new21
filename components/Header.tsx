@@ -172,9 +172,9 @@ export default function Header(){
                 disableScrollLock={ true }
             >
                 <MenuItem  onClick={()=> handleClickLanguage("ro")} style ={{color: "ro" === language ? "#0795fe" : "black"}}>
-                    <img alt={'ro'} src='/ro.png' className={styles.space}/> <span className={styles.languageStyle}>RO</span></MenuItem>
+                    <img style={{width: '16px', height: '12px'}} alt={'ro'} src='/ro.png' className={styles.space}/> <span className={styles.languageStyle}>RO</span></MenuItem>
                 <MenuItem  onClick={()=> handleClickLanguage("en")} style ={{color: "en" === language ? "#0795fe" : "black"}}>
-                    <img alt={'en'} src='/en.png' className={styles.space}/> <span className={styles.languageStyle}>EN</span></MenuItem>
+                    <img style={{width: '16px', height: '12px'}} alt={'en'} src='/en.png' className={styles.space}/> <span className={styles.languageStyle}>EN</span></MenuItem>
             </Menu>
         </React.Fragment>
     )
@@ -211,10 +211,10 @@ export default function Header(){
                         ))
                     }
                     <ListItem onClick={()=> handleClickLanguage("ro")} style ={{color: "ro" === language ? "#0795fe" : "black"}}>
-                        <img alt={'ro'} src='/ro.png' className={styles.space}/>
+                        <img style={{width: '16px', height: '12px'}} alt={'ro'} src='/ro.png' className={styles.space}/>
                         <span className={styles.boldText}>RO</span></ListItem>
                     <ListItem onClick={()=> handleClickLanguage("en")} style ={{color: "en" === language ? "#0795fe" : "black"}}>
-                        <img alt={'en'} src='/en.png' className={styles.space}/>
+                        <img style={{width: '16px', height: '12px'}} alt={'en'} src='/en.png' className={styles.space}/>
                         <span className={styles.boldText}>EN</span> </ListItem>
                 </List>
             </SwipeableDrawer>

@@ -12,11 +12,11 @@ import Button from "@mui/material/Button";
 import TopImage from "../../components/TopImage";
 import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 import parse from "html-react-parser";
-import * as emailjs from "@emailjs/browser";
-
+import axios from "axios";
+import styles from "@/components/Bottom.module.scss";
 
 async function getContactData (lang: string) {
-    const {data} = await makeStrapiRequest.get(`/contact?locale=${lang}`)
+    const {data} = await makeStrapiRequest.get(`/contact?locale=${lang}&populate[contact_left_phone][populate]=*`)
 
     return data
 }
@@ -35,6 +35,19 @@ export default function Contacts() {
     const [language, setLanguage] = useState('ro')
     const recaptchaRef = createRef<any>();
     const [isSuccess, setIsSuccess] = useState(false)
+
+    const extractPhoneNumbers = (inputString: string | null | undefined) => {
+        if (!inputString) {
+            return [];
+        }
+
+        const phoneRegex = /\b\d{4,}\b/g;
+
+        const phoneNumbers = inputString.match(phoneRegex);
+
+        return phoneNumbers || [];
+    };
+
 
     function extract(str: string) {
         const email =
@@ -55,7 +68,11 @@ export default function Contacts() {
     }
 
     const handleName = (e: any) => {
-        setName(e.target.value)
+        if (/\d/.test(e.target.value)) {
+            e.preventDefault();
+        } else {
+            setName(e.target.value)
+        }
     }
     const handleEmail = (e: any) => {
         setEmail(e.target.value)
@@ -75,19 +92,29 @@ export default function Contacts() {
         setError(false)
         setIsSuccess(false)
         let data = {
-            name: name,
-            email: email,
-            subject: subject,
-            message: message
+            name,
+            email,
+            subject,
+            message
         }
-        await emailjs.send('service_jhc4k1d', 'template_bz4wr5c', data, 'xSDtHUimPcXfbQTtH')
-            .then((result) => {
-                console.log(result);
+
+        async function sendEmail() {
+            try {
+                console.log(data)
+                const response = await axios.post('/api/sendEmail', JSON.stringify(data), {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                })
                 setIsSuccess(true)
-            }, (error) => {
-                console.log(error);
+                console.log(response.data);
+            } catch (error: any) {
                 setError(true)
-            });
+                console.error('Error:', error.response ? error.response.data : error.message);
+            }
+        }
+        sendEmail()
+
         setActiveButton(false)
         setName('')
         setEmail('')
@@ -110,6 +137,23 @@ export default function Contacts() {
                                         sx={{marginTop: '0'}}
                                     >
                                         {parse(String(contactItems.attributes?.left))}
+                                    </Typography>
+                                    <Typography
+                                        className={style.textContacts3}
+                                        sx={{display: 'flex'}}
+                                    >
+                                        {contactItems.attributes?.contact_left_phone?.phone_text === undefined ? '' : parse(String(contactItems.attributes?.contact_left_phone?.phone_text))}
+                                        {
+                                            extractPhoneNumbers(contactItems.attributes?.contact_left_phone?.phone).map((item, index) => (
+                                                <a style={{textDecoration: 'none', color: 'rgb(0, 0, 0)'}} key={index}  href={`tel:${item}`} target="_blank">
+                                                    {item}{index !== extractPhoneNumbers(contactItems.attributes?.contact_left_phone?.phone).length - 1 && '/'}
+                                                </a>
+                                            ))
+                                        }
+                                        {/*<a href={`mailto:${extract(String(contactItems.attributes?.email_left))}`}*/}
+                                        {/*   style={{textDecoration: "none", color: "inherit"}}>*/}
+                                        {/*    {parse(String(contactItems.attributes?.email_left))}*/}
+                                        {/*</a>*/}
                                     </Typography>
                                     <Typography
                                         sx={{marginTop: '20px'}}
@@ -137,7 +181,9 @@ export default function Contacts() {
                                         <Grid item>
                                             <TextField required type="text" className={style.inputStyle}
                                                        onChange={handleName}
-                                                       value={name} inputProps={{ maxLength: 40 }}/>
+                                                       value={name} inputProps={{ maxLength: 40,
+                                                pattern: '[^0-9]*'
+                                            }}/>
                                         </Grid>
                                         <br/>
                                         <Grid item container sx={{fontWeight: 'bold'}}>
