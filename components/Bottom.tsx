@@ -77,7 +77,7 @@ export default function Bottom() {
                                 {
                                     bottomData && bottomData.attributes?.left?.bottom_left_icons?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'}
-                                                                  src={'http://localhost:1337' + item.icon?.data?.attributes?.url}
+                                                                  src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url}
                                                                   style={{
                                                                       maxWidth: '500px',
                                                                       maxHeight: '200px',
@@ -86,7 +86,7 @@ export default function Bottom() {
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
-                                                     src={'http://localhost:1337' + item.icon?.data?.attributes?.url} style={{
+                                                     src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{
                                                     cursor: 'pointer',
                                                     maxWidth: '500px',
                                                     maxHeight: '200px',
@@ -101,7 +101,7 @@ export default function Bottom() {
                                 {
                                     bottomData && bottomData.attributes?.left?.bottom_left_icons_big?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'}
-                                                                  src={'http://localhost:1337' + item.icon?.data?.attributes?.url}
+                                                                  src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url}
                                                                   style={{
                                                                       maxWidth: '500px',
                                                                       maxHeight: '200px',
@@ -110,7 +110,7 @@ export default function Bottom() {
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
-                                                     src={'http://localhost:1337' + item.icon?.data?.attributes?.url} style={{
+                                                     src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{
                                                     maxWidth: '500px',
                                                     maxHeight: '200px',
                                                     cursor: 'pointer',
@@ -177,7 +177,7 @@ export default function Bottom() {
                                 {
                                     bottomData && bottomData.attributes?.right?.bottom_right_icons?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'}
-                                                                  src={'http://localhost:1337' + item.icon?.data?.attributes?.url}
+                                                                  src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url}
                                                                   style={{
                                                                       maxWidth: '400px',
                                                                       maxHeight: '200px',
@@ -186,7 +186,7 @@ export default function Bottom() {
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
-                                                     src={'http://localhost:1337' + item.icon?.data?.attributes?.url} style={{
+                                                     src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{
                                                     maxWidth: '400px',
                                                     maxHeight: '200px',
                                                     cursor: 'pointer',
