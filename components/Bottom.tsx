@@ -16,14 +16,7 @@ async function getBottomData(lang: string) {
 export default function Bottom() {
     const [bottomData, setBottomData] = useState<any>()
     const [lang, setLang] = useState('')
-    useEffect(() => {
-        setLang(localStorage.getItem('language') || 'ro')
-        getBottomData(localStorage.getItem('language') || 'ro').then((res) => {
-            setBottomData(res)
-        })
-    }, [])
-
-    const extractPhoneNumbers = (inputString: string | null | undefined) => {
+    const extractPhoneNumbers = (inputString: string) => {
         if (!inputString) {
             return [];
         }
@@ -34,6 +27,15 @@ export default function Bottom() {
 
         return phoneNumbers || [];
     };
+    useEffect(() => {
+        setLang(localStorage.getItem('language') || 'ro')
+        getBottomData(localStorage.getItem('language') || 'ro').then((res) => {
+            setBottomData(res)
+            console.log(extractPhoneNumbers(res.attributes?.right?.bottom_right[2].link))
+        })
+    }, [])
+
+
 
 
     return (
@@ -162,7 +164,7 @@ export default function Bottom() {
                                                     {
                                                         extractPhoneNumbers(item.link).map((itemNum, index) => (
                                                             <a className={styles.leftLink} style={{textDecoration: 'none', color: 'rgb(0, 0, 0)'}} key={index}
-                                                               href={`tel:${item}`} target="_blank">
+                                                               href={`tel:${itemNum}`} target="_blank">
                                                                 {itemNum}{index !== extractPhoneNumbers(item.link).length - 1 && '/'}
                                                             </a>
                                                         ))
