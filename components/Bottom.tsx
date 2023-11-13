@@ -178,16 +178,16 @@ export default function Bottom() {
                                         item.link === null ? <img key={index} alt={'img'}
                                                                   src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url}
                                                                   style={{
-                                                                      maxWidth: '400px',
-                                                                      maxHeight: '200px',
+                                                                      maxWidth: '160px',
+                                                                      maxHeight: '100px',
                                                                       marginRight: '8px'
                                                                   }}/> :
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
                                                      src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url} style={{
-                                                    maxWidth: '400px',
-                                                    maxHeight: '200px',
+                                                    maxWidth: '160px',
+                                                    maxHeight: '100px',
                                                     cursor: 'pointer',
                                                     marginRight: '8px'
                                                 }}/>
