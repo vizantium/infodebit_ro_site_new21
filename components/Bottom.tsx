@@ -4,7 +4,6 @@ import {Grid, Typography} from "@mui/material";
 import styles from "./Bottom.module.scss";
 import {makeStrapiRequest} from "@/utils/makeStrapiRequest";
 import Link from "next/link";
-import parse from "html-react-parser";
 
 
 async function getBottomData(lang: string) {
@@ -31,7 +30,6 @@ export default function Bottom() {
         setLang(localStorage.getItem('language') || 'ro')
         getBottomData(localStorage.getItem('language') || 'ro').then((res) => {
             setBottomData(res)
-            console.log(extractPhoneNumbers(res.attributes?.right?.bottom_right[2].link))
         })
     }, [])
 
@@ -60,7 +58,7 @@ export default function Bottom() {
                         paddingLeft: '15px',
                         paddingRight: '15px'
                     }}>
-                        <Grid sx={{paddingLeft: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}
+                        <Grid sx={{paddingLeft: '10px', display: 'flex', flexDirection: 'column'}}
                               className={styles.rightBottom} item lg={4} xs={12}>
                             <Typography sx={{fontSize: '20px', fontWeight: 600}}>
                                 {bottomData.attributes?.left.title}
@@ -79,7 +77,7 @@ export default function Bottom() {
                                 {
                                     bottomData && bottomData.attributes?.left?.bottom_left_icons?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'}
-                                                                  src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url}
+                                                                  src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url}
                                                                   style={{
                                                                       maxWidth: '500px',
                                                                       maxHeight: '200px',
@@ -88,7 +86,7 @@ export default function Bottom() {
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
-                                                     src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{
+                                                     src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url} style={{
                                                     cursor: 'pointer',
                                                     maxWidth: '500px',
                                                     maxHeight: '200px',
@@ -103,7 +101,7 @@ export default function Bottom() {
                                 {
                                     bottomData && bottomData.attributes?.left?.bottom_left_icons_big?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'}
-                                                                  src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url}
+                                                                  src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url}
                                                                   style={{
                                                                       maxWidth: '500px',
                                                                       maxHeight: '200px',
@@ -112,7 +110,7 @@ export default function Bottom() {
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
-                                                     src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{
+                                                     src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url} style={{
                                                     maxWidth: '500px',
                                                     maxHeight: '200px',
                                                     cursor: 'pointer',
@@ -160,12 +158,11 @@ export default function Bottom() {
                                                    target="_blank">
                                                     {item.text}
                                                 </a> : item.type == 'phone' ? <div className={styles.leftLink}>
-                                                    {item.text}
                                                     {
-                                                        extractPhoneNumbers(item.link).map((itemNum, index) => (
+                                                        extractPhoneNumbers(item.text).map((itemNum, index) => (
                                                             <a className={styles.leftLink} style={{textDecoration: 'none', color: 'rgb(0, 0, 0)'}} key={index}
                                                                href={`tel:${itemNum}`} target="_blank">
-                                                                {itemNum}{index !== extractPhoneNumbers(item.link).length - 1 && '/'}
+                                                                {itemNum}{index !== extractPhoneNumbers(item.text).length - 1 && '/'}
                                                             </a>
                                                         ))
                                                     }
@@ -179,7 +176,7 @@ export default function Bottom() {
                                 {
                                     bottomData && bottomData.attributes?.right?.bottom_right_icons?.map((item: any, index: any) => (
                                         item.link === null ? <img key={index} alt={'img'}
-                                                                  src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url}
+                                                                  src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url}
                                                                   style={{
                                                                       maxWidth: '400px',
                                                                       maxHeight: '200px',
@@ -188,7 +185,7 @@ export default function Bottom() {
                                             <a key={index} rel="noopener" href={`${item.link === undefined ? '' : item.link}`}
                                                target="_blank">
                                                 <img alt={'img'}
-                                                     src={'http://192.168.134.197:1337' + item.icon?.data?.attributes?.url} style={{
+                                                     src={`${process.env.NEXT_PUBLIC_CMS_URL}` + item.icon?.data?.attributes?.url} style={{
                                                     maxWidth: '400px',
                                                     maxHeight: '200px',
                                                     cursor: 'pointer',
